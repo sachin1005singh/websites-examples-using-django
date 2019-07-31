@@ -1,0 +1,11 @@
+#formuse{
+     background: white url("images/papper.jpg");
+     background-repeat: repeat-no;
+     background-size: cover;
+     background-attachment : fixed;
+
+}
+
+li{
+list-style-type: none;
+}

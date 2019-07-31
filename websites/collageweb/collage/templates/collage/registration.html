@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formuse</title>
+
+
+
+ <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<h1 class="capital"> user Registration form</h1>
+<div class ="container">
+   <div class="form-group">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+
+            <li>
+                <div class="alert alert-success">{{ message }}</div>
+            </li>
+             {% endfor %}
+        </ul>
+            {% endif %}
+    </div>
+    <!--
+    <div class = "col-md-5">
+    <form method = "post" action="">
+        {% csrf_token %}
+        {{ frm.as_p }}
+-->
+  <form method="post" action="" class="form-horizontal">
+        {% csrf_token %}
+       <div  class="form-group" >
+        <label class ="col-md-2 control-label">Username</label>
+        <div class = "col-md-5">
+            {{frm.username }}
+            {{ frm.username.errors }}
+        </div>
+    </div>
+
+           <div  class="form-group" >
+        <label class ="col-md-2 control-label">Email ID</label>
+        <div class = "col-md-5">
+            {{ frm.email }}
+              {{ frm.email.errors }}
+        </div>
+    </div>
+
+           <div  class="form-group" >
+        <label class ="col-md-2 control-label">First Name</label>
+        <div class = "col-md-5">
+            {{frm.first_name}}
+
+        </div>
+    </div>
+
+
+           <div  class="form-group" >
+        <label class ="col-md-2 control-label">Last Name</label>
+        <div class = "col-md-5">
+            {{ frm.last_name }}
+
+        </div>
+    </div>
+
+           <div  class="form-group" >
+        <label class ="col-md-2 control-label">Password</label>
+        <div class = "col-md-5">
+            {{frm.password}}
+
+        </div>
+    </div>
+
+           <div  class="form-group" >
+        <label class ="col-md-2 control-label">Confirm Password</label>
+        <div class = "col-md-5">
+            {{frm.confirm_password}}
+            {{frm.confirm_password.errors}}
+
+        </div>
+
+    </div>
+
+        <div class="col-md-offset-3">
+        <button type="submit" class="btn btn-primary"> SUBMIT</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+</body>
+</html>

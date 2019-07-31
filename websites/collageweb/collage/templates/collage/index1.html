@@ -1,0 +1,22 @@
+<h1>{{m1.actor}}</h1>
+<h1>{{m1.actor_movie}}</h1>
+{% if error_message %}
+<strong> {{error_message}}</strong>
+
+{% endif %}
+
+<form action ="{% url 'movie1:favorite' m1.id %}" method="post">
+{% csrf_token %}
+        {% for song in m1.song_set.all %}
+           <input type ="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}/">
+           <label for="song{{ forloop.counter }}">
+               {{ song.song_name }}
+               {% if song.is_favorite %}
+               <img src="D:\usedjango\New folder\paper.jpg"/>
+               {% endif %}
+
+           </label><br>
+
+    {% endfor %}
+    <input type="submit" value = "Favorite">
+</form>

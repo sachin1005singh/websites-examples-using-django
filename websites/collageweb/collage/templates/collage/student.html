@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formuse</title>
+
+
+
+ <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Company Page</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+table{
+
+border-collapse: collapse;
+width: 100%;}
+
+#listuse{
+border : 1px solid lightblue;
+border-radius: 5px;
+background-color: rgba(240,240,240,0.4);}
+</style>
+
+</head>
+<body>
+<center>
+<h1 class= "display-1" style="font-size: 60px;background-color: rgba(100,10,70,1);text-align:center;font-family:arial;color:lightblue;"> Add Your College</h1>
+<br>
+</center>
+
+<div class = "container" style="background-color:rgba(240,240,240,1);border: 3px solid rgba(100,10,70,1);border-radius:10px;">
+<form method = "post" action="">
+    {% csrf_token %}
+
+    <br>
+    <div  class="form-group" style="align:center;">
+        <label class ="col-md-2 control-label">NAME </label>
+        <div class = "col-md-4">
+            {{form.name}}
+        </div>
+    </div>
+<br><br>
+    <div  class="form-group" >
+        <label class ="col-md-2 control-label">E-MAIL ID</label>
+        <div class = "col-md-4">
+            {{form.emailid}}
+        </div>
+    </div>
+<br><br>
+        <div  class="form-group" >
+        <label class ="col-md-2 control-label">URL</label>
+        <div class = "col-md-4">
+            {{form.url}}
+        </div>
+    </div>
+<br><br>
+        <div  class="form-group" >
+        <label class ="col-md-2 control-label">ABOUT</label>
+        <div class = "col-md-4">
+            {{form.about}}
+        </div>
+    </div>
+<br><br><br><br><br><br><br><br><br><br>
+    <button type ="submit" class="btn btn-primary" style ="position:left;"> Submit </button>
+<br><br>
+</form>
+</div>
+
+<br><br><div class = "container">
+{% for k in std %}
+            <p class="lead" id = "listuse">
+                <br>&nbsp;&nbsp;{{k.name}}<br>
+             &nbsp;&nbsp;{{k.emailid}}<br>
+              &nbsp;&nbsp;{{k.url}}<br><br>
+        </p>
+
+
+    {% endfor %}
+</div>
+
+
+</body>
+</html>
